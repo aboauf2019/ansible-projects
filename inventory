@@ -1,0 +1,17 @@
+node-0[1:5]
+[prod]
+node-01
+node-02
+
+[test]
+node-03
+
+[dev]
+node-04
+
+[balancer]
+node-05
+
+[Cairo:children]
+prod
+balancer

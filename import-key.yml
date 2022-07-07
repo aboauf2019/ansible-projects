@@ -1,0 +1,12 @@
+---
+- name: import admin user ssh key
+  hosts: all
+  gather-facts: falae
+  tasks:
+    - name: import key
+      authorized_key:
+        user: admin
+        state: present
+        key: '{{ item }}'
+      with_file:
+        - /hnoe/admin/.ssh/id_rsa.pub
