@@ -8,4 +8,4 @@
         state: present
         key: '{{ item }}'
       with_file:
-        - /hnoe/admin/.ssh/id_rsa.pub
+        - /home/admin/.ssh/id_rsa.pub
