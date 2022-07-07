@@ -1,7 +1,6 @@
 ---
 - name: import admin user ssh key
   hosts: all
-  gather-facts: falae
   tasks:
     - name: import key
       authorized_key:
