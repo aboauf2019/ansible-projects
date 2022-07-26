@@ -1,0 +1,11 @@
+---
+- name: install stratis packages
+  hosts: all
+  tasks:
+    - name: package installation
+      package:
+        name:
+          - stratisd
+          - stratis-cli
+        state: present
+...
