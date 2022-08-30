@@ -1,0 +1,24 @@
+---
+- name: Managed Node Config
+  hosts: all
+  tasks:
+    - name: Create Ansible user
+      user:
+        name: ansible
+        state: present
+        append: yes
+        groups: wheel
+    - name: Configure passwordless sudo for ansible user
+      copy:
+        content: ansible ALL=(ALL) NOPASSWD:ALL
+        des: /etc/sudoers.d/ansible
+        mode: 400
+        owner: root
+    - name: copy ssh key 
+      authorized_key:
+        user: ansible
+        state: present
+        key: '{{ item }}'
+      with_file:
+        - ~/.ssh/id_res.pub
+...
