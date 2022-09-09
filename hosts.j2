@@ -1,6 +1,7 @@
 {# This is a jinja template for rendering hosts file for a set of hosts using ansible gathered facts #}
 127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
 ::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+{# Consider changing the group all with the appropriate inventory group #}
 {% for host in groups['all'] %}
 {{ hostvars[host]['ansible_facts']['default_ipv4']['address'] }} {{ hostvars[host]['ansible_facts']['fqdn'] }} {{ hostvars[host]['ansible_facts']['hostname'] }}
 {% endfor %}
