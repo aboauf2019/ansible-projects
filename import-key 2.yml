@@ -1,0 +1,10 @@
+---
+- name: import admin user ssh key
+  hosts: all
+  tasks:
+    - name: import key
+      authorized_key:
+        user: admin
+        state: present
+        key: "{{ lookup('file', '/home/ansible/.ssh/id_rsa.pub') }}"
+...
